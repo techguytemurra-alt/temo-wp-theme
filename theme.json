@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "settings": {
+        "color": {
+            "palette": [
+                {
+                    "slug": "primary",
+                    "color": "#f2b50b",
+                    "name": "Temo Gold"
+                },
+                {
+                    "slug": "secondary",
+                    "color": "#0731a4",
+                    "name": "Temo Blue"
+                }
+            ]
+        },
+        "layout": {
+            "contentSize": "800px",
+            "wideSize": "1000px"
+        }
+    }
+}

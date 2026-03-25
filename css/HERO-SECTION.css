@@ -1,0 +1,281 @@
+#hero {
+    padding-top: 20px;
+    min-height: 90vh;
+}
+
+.hero-grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+}
+
+.hero-main-box {
+    flex: 3 1 550px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("your-image.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: var(--radius);
+    padding: 50px;
+    min-height: 500px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-content h1 {
+    font-size: 3.2rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-main {
+    background: var(--primary-color);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.btn-outline {
+    border: 2px solid white;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+}
+
+.hero-small-column {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.small-card {
+    flex: 1;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-photography {
+    background: linear-gradient(135deg, #50e3c2, #17a2b8);
+}
+
+.card-networking {
+    background: var(--secondary-color);
+}
+
+.card-consultation {
+    background: var(--primary-color);
+}
+
+.hero-sidebar {
+    flex: 1 1 250px;
+    background: white;
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* --- ძირითადი სტილები (დარწმუნდი, რომ transition გიწერია) --- */
+.small-card {
+    flex: 1;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* აუცილებელია რბილი გადასვლისთვის */
+    transition: all 0.3s ease;
+
+    /* თავიდან გამჭვირვალე ჩარჩო, რომ Hover-ზე ზომა არ შეეცვალოს */
+    border: 2px solid transparent;
+
+    cursor: pointer;
+    /* რომ მიხვდნენ, რომ დაჭერადია */
+}
+
+/* =========================================
+   Hover ეფექტები (დაამატე ეს ბლოკი)
+   ========================================= */
+.small-card:hover {
+    /* 1. ოდნავ ამოწევა (translateY) */
+    transform: translateY(-8px);
+
+    /* 2. ჩრდილის გაძლიერება (უფრო ღრმა გამოჩნდეს) */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+    /* 3. სიკაშკაშის ოდნავ მომატება (brightness) */
+    filter: brightness(1.1);
+}
+
+/* კონკრეტული ჩარჩოს ფერები Hover-ზე თითოეული კუბიკისთვის */
+.card-photography:hover {
+    border-color: #50e3c2;
+    /* Creative Visuals-ის ფერი */
+}
+
+.card-networking:hover {
+    border-color: var(--white);
+    /* IT Systems-ისთვის თეთრი */
+}
+
+.card-consultation:hover {
+    border-color: var(--white);
+    /* Consultation-ისთვის თეთრი */
+}
+
+
+/* =========================================
+   LIVE STATUS SIDEBAR (განახლებული)
+   ========================================= */
+.hero-sidebar {
+    flex: 1 1 280px;
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 30px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.hero-sidebar h3 {
+    font-size: 1.1rem;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+}
+
+/* სტატუსის სია და წერტილები */
+.sidebar-status {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.sidebar-status li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #444;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: relative;
+}
+
+/* Pulse ანიმაცია ყველა წერტილისთვის */
+.dot::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    animation: pulse 2s infinite;
+    opacity: 0.6;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(2.8);
+        opacity: 0;
+    }
+}
+
+.dot.green {
+    background: #2ecc71;
+}
+
+.dot.blue {
+    background: #3498db;
+}
+
+.dot.orange {
+    background: #e67e22;
+}
+
+/* სტატისტიკის ბარათები */
+.sidebar-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.stat-item {
+    background: #fdfdfd;
+    padding: 15px 10px;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid #f0f0f0;
+    transition: all 0.3s ease;
+}
+
+.stat-item strong {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--secondary-color);
+    margin-bottom: 4px;
+}
+
+.stat-item span {
+    font-size: 0.75rem;
+    color: #888;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Hover ეფექტი სტატისტიკაზე */
+.stat-item:hover {
+    background: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+.stat-item:hover strong,
+.stat-item:hover span {
+    color: var(--white);
+}

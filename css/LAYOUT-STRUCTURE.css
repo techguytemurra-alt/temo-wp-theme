@@ -1,0 +1,77 @@
+.layout-wrapper {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    padding: 20px;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.header-menu {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+    height: calc(100vh - 40px);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    z-index: 1000;
+}
+
+.menu-brand {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.text-1 {
+    color: var(--primary-color);
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+.main-nav {
+    background: var(--secondary-color);
+    padding: 30px 20px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.main-nav ul {
+    list-style: none;
+}
+
+.main-nav ul li a {
+    display: block;
+    padding: 14px 18px;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 12px;
+    border-radius: 15px;
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.main-nav ul li a:hover {
+    background: var(--white);
+    color: var(--secondary-color);
+    transform: translateX(8px);
+}
+
+.sidebar-footer {
+    background: #1e293b;
+    color: white;
+    padding: 20px;
+    border-radius: var(--radius);
+    text-align: center;
+    font-size: 0.8rem;
+    margin-top: auto;
+}
+
+.content-area {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    min-width: 0;
+}

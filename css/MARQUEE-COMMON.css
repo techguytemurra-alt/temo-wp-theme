@@ -1,0 +1,42 @@
+.marquee {
+    width: 100%;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    padding: 20px 0;
+    border-radius: var(--radius);
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: -200px;
+    /* რაც უფრო მეტს დაწერ მინუსში, მით მეტად ავა ზემოთ */
+    position: relative;
+    /* დაზღვევისთვის, რომ სხვა ელემენტებს ზემოდან მოექცეს */
+    z-index: 5;
+}
+
+.marquee-content {
+    display: inline-block;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee-content span {
+    font-size: 1.5rem;
+    font-weight: 800;
+    padding-right: 60px;
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
