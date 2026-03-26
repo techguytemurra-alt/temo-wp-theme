@@ -32,3 +32,12 @@
         font-size: 2.2rem;
     }
 }
+
+@media (min-height: 800px) {
+
+    .about-container,
+    .personal-card-container {
+        min-height: 85vh;
+        /* მაღალ ეკრანებზე უფრო გაიზარდოს */
+    }
+}

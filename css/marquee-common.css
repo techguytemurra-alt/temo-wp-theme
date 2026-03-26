@@ -6,11 +6,15 @@
     border-radius: var(--radius);
     overflow: hidden;
     white-space: nowrap;
-    margin-top: -200px;
-    /* რაც უფრო მეტს დაწერ მინუსში, მით მეტად ავა ზემოთ */
+
+    /* ნაცვლად margin-top: -200px; */
+    transform: translateY(-150px);
+    /* ეს ვიზუალურად სწევს ზემოთ, ოღონდ სქროლვის ლოგიკას არ ურევს */
+
     position: relative;
-    /* დაზღვევისთვის, რომ სხვა ელემენტებს ზემოდან მოექცეს */
     z-index: 5;
+    margin-bottom: -100px;
+    /* ეს დააშორებს ქვედა სექციას (Skills), რომ ზედმეტად დიდი ცარიელი ადგილი არ დარჩეს */
 }
 
 .marquee-content {

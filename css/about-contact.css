@@ -1,0 +1,71 @@
+/* About და Contact-ის საერთო კონტეინერი */
+.main-content-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 50px;
+    align-items: stretch;
+    /* ორივე ბლოკი ერთი სიმაღლის იქნება */
+}
+
+/* About და Contact ბლოკები */
+.about-container,
+.personal-card-container {
+    flex: 1 1 450px;
+    background: var(--card-bg);
+    /* ფონი შეიცვლება თემის მიხედვით */
+    padding: 60px 50px;
+    /* მეტი ჰაერი შიგნით */
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    min-height: 550px;
+    /* აი ეს დააბრუნებს დიდ ზომას */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* ტექსტი ვერტიკალურად შუაში იქნება */
+    transition: transform 0.3s ease;
+    min-height: 900px;
+    /* აი ეს არის შენი "დიდი ზომა" */
+}
+
+/* პროფილის ფოტო */
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 5px solid var(--primary-color);
+    object-fit: cover;
+    margin-bottom: 25px;
+}
+
+/* სოციალური ღილაკები */
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.social-btn {
+    padding: 12px 25px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--primary-color);
+}
+
+.social-btn.wa {
+    border-color: #25d366;
+    color: #25d366;
+}
+
+.social-btn.wa:hover {
+    background: #25d366;
+    color: white;
+}

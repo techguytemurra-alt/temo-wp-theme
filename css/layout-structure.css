@@ -2,7 +2,8 @@
     display: flex;
     width: 100%;
     min-height: 100vh;
-    padding: 20px;
+    padding: 0 20px 20px 20px;
+    /* ზემოდან 0, გვერდებზე და ქვემოთ 20px */
     gap: 25px;
     align-items: flex-start;
 }
@@ -11,7 +12,7 @@
     width: 280px;
     flex-shrink: 0;
     position: sticky;
-    top: 20px;
+    top: 0px;
     height: calc(100vh - 40px);
     display: flex;
     flex-direction: column;

@@ -16,15 +16,15 @@ function temo_dev_scripts() {
     // გაითვალისწინე: თუ ფაილები /css/ საქაღალდეში გაქვს, დატოვე '/css/', თუ პირდაპირ თემის ფოლდერში - წაშალე.
     
     wp_enqueue_style( 'base-style', $theme_uri . '/css/base.css' );
-    wp_enqueue_style( 'layout-structure', $theme_uri . '/css/LAYOUT-STRUCTURE.css' );
-    wp_enqueue_style( 'hero-section', $theme_uri . '/css/HERO-SECTION.css' );
-    wp_enqueue_style( 'marquee-common', $theme_uri . '/css/MARQUEE-COMMON.css' );
-    wp_enqueue_style( 'skills-sections', $theme_uri . '/css/SKILLS-SECTIONS.css' );
-    wp_enqueue_style( 'about-contact', $theme_uri . '/css/ABOUT-CONTACT.css' );
-    wp_enqueue_style( 'gutenberg-fix', $theme_uri . '/css/gutenberg-fix.css' );
+    wp_enqueue_style( 'layout-structure', $theme_uri . '/css/layout-structure.css' );
+    wp_enqueue_style( 'hero-section', $theme_uri . '/css/hero-section.css' );
+    wp_enqueue_style( 'marquee-common', $theme_uri . '/css/marquee-common.css' );
+    wp_enqueue_style( 'skills-sections', $theme_uri . '/css/skill-section.css' );
+    wp_enqueue_style( 'about-contact', $theme_uri . '/css/about-contact.css' );
+    wp_enqueue_style( 'gutenberg-fix', $theme_uri . '/css/services.css' );
 
     // 4. რესპონსიულობა (Media Queries) - აუცილებლად ბოლოში!
-    wp_enqueue_style( 'media-queries', $theme_uri . '/css/MEDIA-QUERIES.css' );
+    wp_enqueue_style( 'media-queries', $theme_uri . '/css/media-queries.css' );
 }
 add_action( 'wp_enqueue_scripts', 'temo_dev_scripts' );
 

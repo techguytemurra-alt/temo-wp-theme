@@ -14,8 +14,9 @@
       </div>
       <nav class="main-nav">
         <ul>
-          <li><a href="#hero">Home</a></li>
+          <li><a href="#">Home</a></li>
           <li><a href="#skills">Skills</a></li>
+          <li><a href="#services">Services</a></li>
           <li><a href="#about">About Me</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -23,6 +24,8 @@
       <footer class="sidebar-footer">
         <p>&copy; <?php echo date('Y'); ?> ჩემი პორტფოლიო | Build with M3 Pro</p>
       </footer>
+      <button id="theme-toggle" class="theme-switch">🌙</button>
+      <button id="scroll-top" class="scroll-btn">↑</button>
     </header>
 
     <main class="content-area">
@@ -84,6 +87,7 @@
         </div>
       </div>
 
+      <div class="dark-section-wrapper">
       <section id="skills" class="skills-section">
         <div class="container">
           <h2 class="section-title">Technical Toolkit</h2>
@@ -131,6 +135,34 @@
           </div>
         </div>
       </section>
+    </div>
+
+
+ <div class="dark-section-wrapper1">
+ <section id="services" class="services-section">
+        <div class="container">
+          <h2 class="section-title">Professional Services</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <div class="service-icon">🛠️</div>
+              <h3>Hardware Excellence</h3>
+              <p>ლეპტოპების და PC-ების დიაგნოსტიკა, ნაწილების შეცვლა და სისტემური ოპტიმიზაცია.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🌐</div>
+              <h3>Network Setup</h3>
+              <p>ლოკალური ქსელების გამართვა, როუტერების კონფიგურაცია და უსაფრთხოების მონიტორინგი.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">💻</div>
+              <h3>Web Solutions</h3>
+              <p>ვებ-გვერდების აწყობა WordPress-ზე, დიზაინის მორგება და ტექნიკური მხარდაჭერა.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+</div>
+
 
    <div class="main-content-row">
         <section id="about" class="about-container">
@@ -162,7 +194,59 @@
                 </div>
             </div>
         </section> 
-      </div> </main> </div> <a href="#hero" class="back-to-top">↑</a>
+      </div> 
+    </main> 
+  </div> 
+  
+  
   <?php wp_footer(); ?>
+
+  <script>
+ const themeBtn = document.querySelector('#theme-toggle');
+const currentTheme = localStorage.getItem('theme'); // ვამოწმებთ, ხომ არ გვიდევს საწყობში "theme"
+
+// 1. თუ საწყობში უკვე გვიდევს 'dark', ჩავრთოთ ეგრევე
+if (currentTheme === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    themeBtn.innerHTML = '☀️';
+}
+
+themeBtn.addEventListener('click', () => {
+    let theme = 'light'; // დეფაულტად იყოს ნათელი
+    
+    if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        theme = 'dark';
+        themeBtn.innerHTML = '☀️';
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        themeBtn.innerHTML = '🌙';
+    }
+    
+    // 2. შევინახოთ არჩევანი საწყობში (localStorage)
+    localStorage.setItem('theme', theme);
+});
+
+const scrollTopBtn = document.querySelector('#scroll-top');
+
+// 1. გამოვაჩინოთ ღილაკი მხოლოდ მაშინ, როცა 300px-ზე მეტს ჩამოვსქროლავთ
+window.onscroll = function() {
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    scrollTopBtn.style.display = "block";
+  } else {
+    scrollTopBtn.style.display = "none";
+  }
+};
+
+// 2. ზემოთ ასვლის ფუნქცია
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // ნაზი ასვლა
+  });
+});
+  
+</script>
+
 </body>
 </html>

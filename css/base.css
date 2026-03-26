@@ -2,13 +2,34 @@
    1. RESET & VARIABLES (ცვლადები და ბაზა)
    ================================================= */
 :root {
+  /* ძირითადი პარამეტრები */
   --primary-color: #f2b50b;
   --secondary-color: #0731a4;
-  --bg-color: #f4f4f4;
-  --white: #ffffff;
-  --text-dark: #333;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   --radius: 25px;
+  --white: #ffffff;
+
+  /* Light Mode (ნათელი ფერები - Default) */
+  --bg-color: #f4f4f4;
+  /* შენი ძველი ფონი */
+  --text-color: #333;
+  --accent-color: #007aff;
+  --card-bg: #ffffff;
+}
+
+/* Dark Mode (როცა ჩავრთავთ) */
+[data-theme="dark"] {
+  --bg-color: #0d1117;
+  --text-color: #c9d1d9;
+  --accent-color: #58a6ff;
+  --card-bg: #161b22;
+  --primary-color: #fbc02d;
+  /* მუქ ფონზე ცოტა უფრო ღია ყვითელი უკეთ ჩანს */
+}
+
+html {
+  scroll-behavior: smooth;
+
 }
 
 * {
@@ -18,16 +39,89 @@
   max-width: 100%;
 }
 
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 50px;
-  /* სქროლვის კომპენსაცია */
-}
-
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--bg-color);
-  color: var(--text-dark);
+  color: var(--text-color);
+  /* აქ შევცვალე --text-dark ცვლადი --text-color-ით */
   line-height: 1.6;
   overflow-x: hidden;
+  transition: background-color 0.3s, color 0.3s;
+  /* ნაზად გადავა ფერები */
+}
+
+
+/*theme-swith*/
+
+.theme-switch {
+  cursor: pointer;
+  border: none;
+  background: var(--accent-color);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  transition: 0.3s;
+  position: fixed;
+  /* ეკრანზე რომ დაჰყვებოდეს სქროლვისას */
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  outline: none;
+}
+
+.theme-switch:hover {
+  transform: scale(1.1);
+}
+
+.theme-switch:active {
+  transform: scale(0.9);
+}
+
+
+/*scrool buttom*/
+
+.scroll-btn {
+  display: none;
+  /* თავიდან დამალული იქნება */
+  position: fixed;
+  bottom: 85px;
+  /* Dark mode ღილაკზე ცოტა მაღლა, რომ არ გადაეფაროს */
+  right: 20px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  transition: 0.3s;
+}
+
+.scroll-btn:hover {
+  background-color: var(--secondary-color);
+  transform: translateY(-5px);
+}
+
+#skills,
+#services,
+#about,
+#contact {
+  scroll-margin-top: 80px;
+  /* ეს ციფრი შეურჩიე შენი მენიუს სიმაღლის მიხედვით */
+  min-height: 80vh;
+  /* ეკრანის სიმაღლის 80% მაინც დაიკავოს, რომ სხვა სექცია არ გამოჩნდეს */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* რომ შიგთავსი ზემოდან დაიწყოს */
 }
