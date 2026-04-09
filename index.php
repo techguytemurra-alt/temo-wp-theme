@@ -144,11 +144,10 @@
             <h2 class="section-title">Professional Services</h2>
             <div class="services-grid">
                 <?php 
-                // ვამოწმებთ, არის თუ არა რამე ჩაგდებული ვიჯეტების ზონაში
                 if ( is_active_sidebar( 'services-widgets' ) ) : 
+                    // ვიწყებთ ბუფერიზაციას, რომ კონტენტს მანიპულაცია გავუკეთოთ
                     dynamic_sidebar( 'services-widgets' ); 
                 else : 
-                    // ეს გამოჩნდება მხოლოდ მაშინ, თუ ადმინ პანელი ცარიელია
                     echo '<p style="color:white; text-align:center;">დაამატე სერვისები: Appearance > Widgets > Services Area</p>';
                 endif; 
                 ?>

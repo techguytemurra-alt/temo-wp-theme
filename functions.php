@@ -34,14 +34,13 @@ add_action( 'after_setup_theme', function() {
     add_theme_support( 'post-thumbnails' );
 });
 
-// ვიჯეტების ზონა
 function temo_dev_widgets_init() {
     register_sidebar( array(
         'name'          => 'Services Area',
         'id'            => 'services-widgets',
-        'before_widget' => '<div class="service-card">',
+        'before_widget' => '<div class="service-card custom-service-item">', // დავამატეთ კლასი
         'after_widget'  => '</div>',
-        'before_title'  => '<h3>',
+        'before_title'  => '<h3 class="service-card-title">', // დავამატეთ კლასი
         'after_title'   => '</h3>',
     ) );
 }

@@ -1,37 +1,28 @@
-/* 1. Wrapper */
-.dark-section-wrapper1 {
-    background: #b0d40f;
-    margin: 60px 0;
-    padding: 60px 0;
-    border-radius: var(--radius);
-    min-height: auto;
-}
-
-/* 2. სექციის შიდა სტილი */
-.services-section {
-    padding: 20px 0;
-    background: transparent;
-}
-
-/* 3. Grid */
+/* 1. Grid-ის კონტეინერი */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     margin-top: 40px;
-    align-items: start;
 }
 
-/* 4. ბარათის სტილი */
+/* 2. ბარათის ბაზა */
 .service-card {
     background: var(--card-bg);
-    padding: 35px 25px;
+    /* იყენებს თემის ფონს */
+    padding: 40px 30px;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    text-align: left;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
+    /* transition ყველა ცვლილებაზე (ფერიც და მოძრაობაც) */
     border: 1px solid rgba(0, 0, 0, 0.05);
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 🌙 Dark Mode-ის სპეციფიკური ჩარჩო */
+[data-theme="dark"] .service-card {
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .service-card:hover {
@@ -39,54 +30,47 @@
     border-color: var(--primary-color);
 }
 
-/* 5. ხატულა */
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    display: block;
-    text-align: center;
-}
-
-/* 6. სათაური (h3) - გაერთიანებული */
-.service-card h3,
-.service-card .wp-block-group h3 {
-    margin-top: 0;
-    margin-bottom: 40px;
-    /* დაშორება სათაურსა და ტექსტს შორის */
+/* 3. სათაური */
+.service-card h2.service-card-title,
+.service-card .wp-block-group h2 {
+    margin-top: 50px;
+    margin-bottom: 60px;
+    /* 100px ძალიან ბევრი იყო, 60px უფრო დახვეწილია */
     color: var(--text-color);
-    font-size: 1.25rem;
+    /* ავტომატურად იცვლება თეთრი/შავი */
+    font-size: 1.3rem;
     text-align: center;
+    line-height: 1.2;
 }
 
-/* 7. პარაგრაფი - გაერთიანებული */
+/* 4. ტექსტი (პარაგრაფი) */
 .service-card p,
 .service-card .wp-block-group p {
-    margin-bottom: 35px;
-    /* დაშორება ტექსტსა და ლისტს შორის */
+    margin-bottom: 40px;
     line-height: 1.6;
+    color: var(--text-color);
+    /* ავტომატურად იცვლება თეთრი/შავი */
 }
 
-/* 8. სია (ul/li) - გაერთიანებული */
-.service-card ul,
-.service-card .wp-block-group ul {
+/* 5. ჩამონათვალი (List) */
+.service-card ul {
     list-style: none;
     padding: 0;
     margin: 0;
+    margin-top: auto;
 }
 
-.service-card ul li,
-.service-card .wp-block-group ul li {
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    /* დაშორება პუნქტებს შორის */
-    padding-left: 20px;
+.service-card ul li {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    padding-left: 25px;
     position: relative;
     line-height: 1.4;
     color: var(--text-color);
+    /* ავტომატურად იცვლება თეთრი/შავი */
 }
 
-.service-card ul li::before,
-.service-card .wp-block-group ul li::before {
+.service-card ul li::before {
     content: "▹";
     position: absolute;
     left: 0;
