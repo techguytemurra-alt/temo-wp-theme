@@ -138,31 +138,24 @@
     </div>
 
 
- <div class="dark-section-wrapper1">
- <section id="services" class="services-section">
+<div class="dark-section-wrapper1">
+    <section id="services" class="services-section">
         <div class="container">
-          <h2 class="section-title">Professional Services</h2>
-          <div class="services-grid">
-            <div class="service-card">
-              <div class="service-icon">🛠️</div>
-              <h3>Hardware Excellence</h3>
-              <p>ლეპტოპების და PC-ების დიაგნოსტიკა, ნაწილების შეცვლა და სისტემური ოპტიმიზაცია.</p>
+            <h2 class="section-title">Professional Services</h2>
+            <div class="services-grid">
+                <?php 
+                // ვამოწმებთ, არის თუ არა რამე ჩაგდებული ვიჯეტების ზონაში
+                if ( is_active_sidebar( 'services-widgets' ) ) : 
+                    dynamic_sidebar( 'services-widgets' ); 
+                else : 
+                    // ეს გამოჩნდება მხოლოდ მაშინ, თუ ადმინ პანელი ცარიელია
+                    echo '<p style="color:white; text-align:center;">დაამატე სერვისები: Appearance > Widgets > Services Area</p>';
+                endif; 
+                ?>
             </div>
-            <div class="service-card">
-              <div class="service-icon">🌐</div>
-              <h3>Network Setup</h3>
-              <p>ლოკალური ქსელების გამართვა, როუტერების კონფიგურაცია და უსაფრთხოების მონიტორინგი.</p>
-            </div>
-            <div class="service-card">
-              <div class="service-icon">💻</div>
-              <h3>Web Solutions</h3>
-              <p>ვებ-გვერდების აწყობა WordPress-ზე, დიზაინის მორგება და ტექნიკური მხარდაჭერა.</p>
-            </div>
-          </div>
         </div>
-      </section>
+    </section>
 </div>
-
 
    <div class="main-content-row">
         <section id="about" class="about-container">

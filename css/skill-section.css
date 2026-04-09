@@ -109,3 +109,15 @@
 .dark-section-wrapper1 .section-title {
     color: #ffffff;
 }
+
+
+.skill-icon,
+.service-icon {
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-card:hover .skill-icon,
+.service-card:hover .service-icon {
+    transform: scale(1.3) rotate(10deg);
+}
