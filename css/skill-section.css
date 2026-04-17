@@ -9,12 +9,29 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 25px;
+    margin-top: 50px;
+}
+
+
+.container {
+    padding-top: 10px;
+    text-align: center;
+    flex-direction: column;
+}
+
+.section-title {
+    margin-bottom: 50px;
+    text-align: center;
+    display: inline-block;
+    background-color: #b0d40f;
+    border-radius: 50px;
+    padding: 50px 50px;
 }
 
 .skill-card {
     background: var(--card-bg);
     /* თეთრის ნაცვლად ვიყენებთ ცვლადს */
-    padding: 30px;
+    padding: 40px;
     border-radius: 20px;
     text-align: center;
     box-shadow: var(--shadow);
@@ -95,7 +112,7 @@
 }
 
 .dark-section-wrapper {
-    background: #0a8326;
+    background: #1c0ca8;
     /* მწვანე */
 }
 
