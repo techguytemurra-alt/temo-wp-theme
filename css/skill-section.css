@@ -1,3 +1,11 @@
+/* ანიმაციების ბიბლიოთეკა */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+
 .skills-section {
     background: transparent;
     /* აქ პირდაპირ transparent ეწეროს */
@@ -25,8 +33,46 @@
     display: inline-block;
     background-color: #b0d40f;
     border-radius: 50px;
-    padding: 50px 50px;
+    padding: 10px 15px;
+
+    /* 1. Pulse ეფექტისთვის */
+    animation: pulse 3s infinite ease-in-out; 
+    
+    /* 2. Hover ეფექტისთვის (Floating) */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
+    /* 3. Glow Sweep-ისთვის (აუცილებელია) */
+    position: relative;
+    overflow: hidden;
+
 }
+
+
+/* ვარიანტი 2: მაღლა აწევა და ნათება ჰოვერზე */
+.section-title:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(176, 212, 15, 0.5);
+    color: #000; /* ტექსტი რომ კარგად გამოჩნდეს */
+}
+
+/* ვარიანტი 3: თეთრი ნათების გადარბენა */
+.section-title::after {
+    content: '';
+    position: absolute;
+    top: 0; 
+    left: -100%;
+    width: 50%; 
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.6s;
+}
+
+.section-title:hover::after {
+    left: 100%;
+}
+
+
+
 
 .skill-card {
     background: var(--card-bg);
@@ -112,7 +158,7 @@
 }
 
 .dark-section-wrapper {
-    background: #1c0ca8;
+    background: #2c3848;
     /* მწვანე */
 }
 
@@ -138,3 +184,6 @@
 .service-card:hover .service-icon {
     transform: scale(1.3) rotate(10deg);
 }
+
+
+

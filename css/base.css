@@ -10,10 +10,10 @@
   --white: #ffffff;
 
   /* Light Mode (ნათელი ფერები - Default) */
-  --bg-color: #f4f4f4;
+  --bg-color: #ececec;
   /* შენი ძველი ფონი */
   --text-color: #333;
-  --accent-color: #007aff;
+  --accent-color: #22bb2c;
   --card-bg: #ffffff;
 }
 

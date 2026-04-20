@@ -32,7 +32,7 @@
 }
 
 .main-nav {
-    background: var(--secondary-color);
+    background-color: #203e5f;
     padding: 30px 20px;
     border-radius: var(--radius);
     box-shadow: var(--shadow);

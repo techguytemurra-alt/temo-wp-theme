@@ -1,3 +1,12 @@
+.dark-section-wrapper1 {
+    background: #2c3e50; /* აქ ჩაწერე ის ფერი, რომელიც გინდა მწვანის ნაცვლად */
+    padding: 0;          /* მოუშალე ზედმეტი პადინგები */
+    margin: 80px 0;      /* დაშორება სხვა სექციებისგან */
+    overflow: hidden;
+}
+
+
+
 /* 1. Grid-ის კონტეინერი */
 .services-grid {
     display: grid;
