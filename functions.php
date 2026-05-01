@@ -22,10 +22,13 @@ function temo_dev_scripts()
     wp_enqueue_style('skills-sections', $theme_uri . '/css/skill-section.css', array(), time());
     wp_enqueue_style('about-contact', $theme_uri . '/css/about-contact.css');
 
-    // Services CSS - აქ ჩავამატეთ time() ქეშის მოსაკლავად
+    // შესწორებული ხაზი: სახელი არის 'order-style' და ფაილის სახელი არის სწორი
+    wp_enqueue_style('order-style', $theme_uri . '/css/order-forms.css', array(), time());
+
+    // Services CSS
     wp_enqueue_style('gutenberg-fix', $theme_uri . '/css/services.css', array(), time());
 
-    // 4. რესპონსიულობა - აუცილებლად ბოლოში და ფუნქციის შიგნით!
+    // 4. რესპონსიულობა
     wp_enqueue_style('media-queries', $theme_uri . '/css/media-queries.css', array(), time());
 }
 add_action('wp_enqueue_scripts', 'temo_dev_scripts');
@@ -38,7 +41,7 @@ add_action('after_setup_theme', function () {
 
 function temo_dev_widgets_init()
 {
-    // 1. სერვისების არეალი (ამას არ ვეხებით, რჩება როგორც არის)
+    // 1. სერვისების არეალი
     register_sidebar(array(
         'name'          => 'Services Area',
         'id'            => 'services-widgets',
@@ -48,7 +51,7 @@ function temo_dev_widgets_init()
         'after_title'   => '</h3>',
     ));
 
-    // 2. საკონტაქტო ბარათის არეალი (ახალი ჩამატებული)
+    // 2. საკონტაქტო ბარათის არეალი
     register_sidebar(array(
         'name'          => 'Contact Area',
         'id'            => 'contact-widgets',
@@ -56,6 +59,16 @@ function temo_dev_widgets_init()
         'after_widget'  => '</div>',
         'before_title'  => '<h3 class="contact-title">',
         'after_title'   => '</h3>',
+    ));
+
+    // 3. ორდერის ფორმის არეალი (ახლა უკვე ფუნქციის შიგნითაა!)
+    register_sidebar(array(
+        'name'          => 'Order Form Area',
+        'id'            => 'order-form-widgets',
+        'before_widget' => '<div class="order-form-container">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h2 class="section-title">',
+        'after_title'   => '</h2>',
     ));
 }
 add_action('widgets_init', 'temo_dev_widgets_init');

@@ -18,6 +18,7 @@
           <li><a href="#">Home</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="#order" class="nav-order-btn">Order Now</a></li>
           <li><a href="#about">About Me</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -156,6 +157,21 @@
           </div>
         </section>
       </div>
+
+
+      <!-- Order Form Section -->
+      <div class="order-section-wrapper">
+        <section id="order" class="container">
+          <?php
+          if (is_active_sidebar('order-form-widgets')) :
+            dynamic_sidebar('order-form-widgets');
+          else :
+            echo '<p style="text-align:center;">დაამატე ორდერის ფორმა: Appearance > Widgets > Order Form Area</p>';
+          endif;
+          ?>
+        </section>
+      </div>
+
 
       <div class="main-content-row">
         <section id="about" class="about-container">
