@@ -76,3 +76,21 @@
     gap: 50px;
     min-width: 0;
 }
+
+
+/* სელექტორის გაძლიერება მშობელი კლასით */
+.main-nav ul li a.nav-order-btn {
+    color: var(--primary-color);
+    font-weight: 600;
+    border: 1px solid var(--primary-color);
+    padding: 5px 15px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+/* ჰოვერიც იგივე პრინციპით */
+.main-nav ul li a.nav-order-btn:hover {
+    background: var(--primary-color);
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2); /* პატარა ნათება მ3 პრო-ს სტილში */
+}
