@@ -1,88 +1,125 @@
+/* --- SERVICES SECTION REFINED --- */
+
+/* 1. Grid & Layout */
 .dark-section-wrapper1 {
-    /* აქ ჩაწერე ის ფერი, რომელიც გინდა მწვანის ნაცვლად */
-    padding: 0;          /* მოუშალე ზედმეტი პადინგები */
-    margin: 80px 0;      /* დაშორება სხვა სექციებისგან */
+    padding: 0;
+    margin: 80px 0;
     overflow: hidden;
 }
 
-
-
-/* 1. Grid-ის კონტეინერი */
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
+    gap: 30px;
     margin-top: 40px;
 }
 
-/* 2. ბარათის ბაზა */
+/* 2. ბაზისური ბარათი (გარე ყუთი) */
 .service-card {
     background: var(--card-bg);
-    /* იყენებს თემის ფონს */
     padding: 40px 30px;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-    /* transition ყველა ცვლილებაზე (ფერიც და მოძრაობაც) */
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     flex-direction: column;
-}
-
-/* 🌙 Dark Mode-ის სპეციფიკური ჩარჩო */
-[data-theme="dark"] .service-card {
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative; /* საჭიროა შიდა ელემენტების სწორი განლაგებისთვის */
 }
 
 .service-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--primary-color);
+    transform: translateY(-8px); /* ოდნავ მეტად ავწიოთ */
+    border-color: var(--primary-color); /* ბორდერი გაფერადდეს */
+    
+    /* ნეონის ნათება (Glow effect) ყველა მხრიდან */
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.2), 
+                0 0 40px rgba(0, 123, 255, 0.1); 
+    
+    background: rgba(124, 7, 29, 0.978); /* ძალიან ნაზი ლურჯი ელფერი ფონზე */
 }
 
-/* 3. სათაური */
+/* 3. სათაურის დამოუკიდებელი ჰოვერი */
 .service-card h2.service-card-title,
 .service-card .wp-block-group h2 {
-    margin-top: 50px;
-    margin-bottom: 60px;
-    /* 100px ძალიან ბევრი იყო, 60px უფრო დახვეწილია */
-    color: var(--text-color);
-    /* ავტომატურად იცვლება თეთრი/შავი */
-    font-size: 1.3rem;
-    text-align: center;
-    line-height: 1.2;
+    background: rgba(0, 123, 255, 0.05);
+    color: var(--primary-color);
+    padding: 12px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
 }
 
-/* 4. ტექსტი (პარაგრაფი) */
-.service-card p,
-.service-card .wp-block-group p {
-    margin-bottom: 40px;
-    line-height: 1.6;
-    color: var(--text-color);
-    /* ავტომატურად იცვლება თეთრი/შავი */
+.service-card h2:hover {
+    background: rgba(0, 123, 255, 0.15);
+    border-left: 4px solid var(--primary-color);
+    padding-left: 28px;
+}
+
+/* 4. აღწერის ბლოკი (Gutenberg-ში Group-ს დააწერე კლასი: description-box) */
+.description-box {
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    transition: all 0.3s ease;
+    margin-bottom: 25px;
+}
+
+.description-box:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--primary-color);
+    transform: scale(1.02);
 }
 
 /* 5. ჩამონათვალი (List) */
 .service-card ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
+    padding: 25px;
     margin-top: auto;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.01);
+    transition: all 0.3s ease;
 }
 
+.service-card ul:hover {
+    border-color: rgba(0, 123, 255, 0.4);
+    background: rgba(0, 123, 255, 0.02);
+}
+
+/* 6. ნეონის ნიშნულები ლისტში */
 .service-card ul li {
     font-size: 0.95rem;
     margin-bottom: 12px;
-    padding-left: 25px;
+    padding-left: 30px;
     position: relative;
-    line-height: 1.4;
     color: var(--text-color);
-    /* ავტომატურად იცვლება თეთრი/შავი */
+    transition: all 0.3s ease;
 }
 
 .service-card ul li::before {
-    content: "▹";
+    content: "";
     position: absolute;
     left: 0;
-    color: var(--primary-color);
-    font-weight: bold;
+    top: 7px;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.service-card ul li:hover {
+    color: #fff;
+    transform: translateX(8px);
+}
+
+.service-card ul li:hover::before {
+    background-color: #fff;
+    box-shadow: 0 0 12px #fff;
+    transform: scale(1.3);
 }

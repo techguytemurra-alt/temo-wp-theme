@@ -1,21 +1,54 @@
 /* მთლიანი სექციის შეფუთვა */
 .order-section-wrapper {
-    background-color: #0f0f0f; /* ძალიან მუქი, პრემიუმ შავი */
+    background-color: #031a7c; /* ძალიან მუქი, პრემიუმ შავი */
     padding: 100px 0;
     position: relative;
     overflow: hidden;
+    border-radius: 100px;
 }
 
 /* ფორმის კონტეინერი */
+/* ფორმის კონტეინერი - განახლებული */
 .order-form-container {
     max-width: 850px;
     margin: 0 auto;
-    background: rgba(255, 255, 255, 0.03); /* შუშის ეფექტი */
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.03); /* წითლის ნაცვლად ნაზი შუშა */
+    backdrop-filter: blur(15px);
     padding: 60px;
     border-radius: 40px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+    
+    /* აუცილებელი პარამეტრები "გველის" ანიმაციისთვის */
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+
+/* ანიმაციური სხივი */
+.order-form-container::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    padding: 3px;
+    border-radius: 40px; 
+    background: conic-gradient(
+        from var(--angle),
+        transparent 70%,
+        #b0d40f 85%,
+        #ffffff 100%
+    );
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: snakeRotate 4s linear infinite;
+    pointer-events: none;
 }
 
 .order-form-container h2.section-title {
@@ -23,7 +56,7 @@
     font-weight: 700;
     text-align: center;
     margin-bottom: 40px;
-    background: linear-gradient(90deg, #fff, var(--primary-color, #007bff));
+    background: linear-gradient(90deg, #fff, var(--primary-color, #089da7));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -135,5 +168,19 @@
     .order-form-container {
         padding: 30px;
         margin: 0 15px;
+    }
+}
+
+
+/* ანიმაციის ლოგიკა */
+@property --angle {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes snakeRotate {
+    to {
+        --angle: 360deg;
     }
 }

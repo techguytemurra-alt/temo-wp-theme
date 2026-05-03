@@ -28,31 +28,53 @@
 }
 
 .section-title {
-    margin-bottom: 50px;
-    text-align: center;
+    /* 1. ზომა და პოზიციონირება */
     display: inline-block;
-    background-color: #b0d40f;
-    border-radius: 50px;
-    padding: 10px 15px;
-
-    /* 1. Pulse ეფექტისთვის */
-    animation: pulse 3s infinite ease-in-out; 
+    padding: 18px 45px; /* გავზარდეთ ზომა */
+    margin-bottom: 70px;
+    text-align: center;
+    font-size: 2.2rem; /* უფრო დიდი და მკაფიო */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     
-    /* 2. Hover ეფექტისთვის (Floating) */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* 2. ფონი და ფორმა */
+    background: linear-gradient(-45deg, #b0d40f, #8fb30a, #d4f450, #b0d40f);
+    background-size: 400% 400%; /* აუცილებელია გრადიენტის მოძრაობისთვის */
+    color: #000; /* შავი ტექსტი მწვანეზე უკეთ იკითხება */
+    border-radius: 100px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
     
-    /* 3. Glow Sweep-ისთვის (აუცილებელია) */
+    /* 3. ანიმაციები */
+    animation: gradientMove 6s ease infinite, pulseGlow 3s infinite ease-in-out;
+    
+    /* 4. ეფექტები */
+    cursor: pointer;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(176, 212, 15, 0.3);
     position: relative;
     overflow: hidden;
-
 }
 
-
-/* ვარიანტი 2: მაღლა აწევა და ნათება ჰოვერზე */
+/* --- ჰოვერ ეფექტი --- */
 .section-title:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(176, 212, 15, 0.5);
-    color: #000; /* ტექსტი რომ კარგად გამოჩნდეს */
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 50px rgba(176, 212, 15, 0.5);
+    letter-spacing: 4px; /* ტექსტი იშლება ჰოვერზე */
+}
+
+/* --- გრადიენტის მოძრაობის ანიმაცია --- */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- ნაზი ნათების (Pulse) ანიმაცია --- */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 15px rgba(176, 212, 15, 0.3); }
+    50% { box-shadow: 0 0 35px rgba(176, 212, 15, 0.6); }
+    100% { box-shadow: 0 0 15px rgba(176, 212, 15, 0.3); }
 }
 
 /* ვარიანტი 3: თეთრი ნათების გადარბენა */
