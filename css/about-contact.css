@@ -1,38 +1,57 @@
-/* 1. საერთო კონტეინერი */
+/* 
+================================================================
+   [ 📦 01. MAIN STRUCTURE & CONTAINERS ]
+================================================================ 
+*/
+
 .main-content-row {
     display: flex;
     flex-wrap: wrap;
     gap: 30px;
     margin-top: 50px;
-    align-items: stretch;
+    align-items: flex-start;
 }
 
-/* 2. ბლოკების ბაზისური სტილი */
 .about-container,
 .personal-card-container {
     flex: 1 1 450px;
-    background: rgba(255, 255, 255, 0.03); /* შუშის ეფექტი */
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px);
     padding: 60px 50px;
     border-radius: 40px;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    min-height: 900px;
+    min-height: auto; 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    position: relative; /* ანიმაციისთვის */
-    overflow: hidden;   /* ანიმაციისთვის */
+    position: relative;
+    overflow: hidden;
     z-index: 1;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
-/* ჰოვერზე ოდნავ აწევა */
 .about-container:hover,
 .personal-card-container:hover {
     transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
-/* 3. Snake Border ანიმაცია ორივე ბლოკისთვის */
+/* 
+================================================================
+   [ ✨ 02. ANIMATIONS & BORDERS ]
+================================================================ 
+*/
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes snakeRotate {
+  to { --angle: 360deg; }
+}
+
 .about-container::before,
 .personal-card-container::before {
     content: "";
@@ -43,131 +62,183 @@
     background: conic-gradient(
         from var(--angle),
         transparent 75%,
-        #b0d40f 90%, /* შენი ნეონის მწვანე */
+        #b0d40f 90%,
         #ffffff 100%
     );
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
-    animation: snakeRotate 6s linear infinite; /* ოდნავ ნელი ბრუნვა, რომ არ იყოს დამღლელი */
+    animation: snakeRotate 6s linear infinite;
     pointer-events: none;
 }
 
-/* 4. პროფილის ფოტო და შიდა ელემენტები */
+/* 
+================================================================
+   [ 👤 03. PROFILE PICTURE - THE CLEAN FINAL FIX ]
+================================================================ 
+*/
+
+.personal-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* ყველაფერს აცენტრებს ჰორიზონტალურად */
+    text-align: center;
+}
+
 .profile-pic {
+    /* ზომები */
     width: 200px;
     height: 200px;
+    
+    /* ფორმა */
     border-radius: 50%;
-    border: 4px solid #b0d40f;
+    
+    /* შიგთავსის კონტროლი */
     object-fit: cover;
-    margin: 0 auto 30px auto; /* შუაში გასწორება */
-    box-shadow: 0 0 20px rgba(176, 212, 15, 0.3);
-    transition: all 0.3s ease;
-    /* აი ესენი გამოასწორებს სიტუაციას: */
-    object-fit: cover;    /* ფოტო არ გაიწელოს და შეივსოს სივრცე */
-    overflow: hidden;     /* ყველაფერი, რაც ჩარჩოს გარეთაა, მოიჭრას */
     display: block;
+    margin: 0 auto 30px auto;
     
+    /* აი ეს არის მთავარი - რაც წრიდან გამოვა, უნდა დაიმალოს */
+    overflow: hidden; 
     
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    /* ვიზუალი */
+    border: 4px solid #b0d40f;
+    box-shadow: 0 0 20px rgba(176, 212, 15, 0.2);
+    
+    /* ანიმაცია */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 5;
 }
 
+/* ჰოვერზე ეფექტი */
 .profile-pic:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(176, 212, 15, 0.5);
+    box-shadow: 0 0 35px rgba(176, 212, 15, 0.6);
+    border-color: #ffffff;
 }
 
-/* 5. სოციალური ღილაკები */
-.social-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    margin-top: auto; /* ყოველთვის ბოლოში იქნება */
-    justify-content: center;
-}
+/* 
+================================================================
+   [ 📝 04. ABOUT ME: LISTS & BULLETS FIX ]
+================================================================ 
+*/
 
-.social-btn {
-    padding: 14px 28px;
-    border-radius: 100px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    color: #fff;
-    border: 1px solid rgba(176, 212, 15, 0.3);
-}
-
-.social-btn:hover {
-    background: #b0d40f;
-    color: #000;
-    box-shadow: 0 0 20px rgba(176, 212, 15, 0.4);
-    transform: scale(1.05);
-}
-
-.social-btn.wa {
-    border-color: #25d366;
-    color: #25d366;
-}
-
-.social-btn.wa:hover {
-    background: #25d366;
-    color: #fff;
-    box-shadow: 0 0 20px rgba(37, 211, 102, 0.4);
-}
-
-
-/* About Me სექციის ტექსტური ბლოკები */
-.main-content-row .about-container .wp-block-group,
-.main-content-row .about-container p,
-.main-content-row .about-container ul {
+.about-container .wp-block-group,
+.about-container p,
+.about-container ul {
     background: rgba(255, 255, 255, 0.03);
     padding: 25px 30px;
-    border-radius: 20px;
+    border-radius: 22px;
     border: 1px solid rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(10px);
     margin-bottom: 20px;
     color: #ccc;
     line-height: 1.8;
-    transition: none; /* ჰოვერის გაუქმება */
 }
 
-/* ლისტების (Bullet Points) გასწორება */
-.main-content-row .about-container ul.wp-block-list {
-    list-style-type: none; /* სტანდარტული წერტილების მოცილება */
-    padding-left: 35px;
-    margin-left: 0;
+/* წერტილების (Bullets) ფიქსაცია */
+.about-container ul {
+    list-style-type: none !important;
+    padding-left: 40px !important;
 }
 
-.main-content-row .about-container ul.wp-block-list li {
+.about-container ul li {
     position: relative;
     margin-bottom: 12px;
-    color: #eee;
-    font-size: 1.05rem;
 }
 
-/* ნეონის მწვანე წერტილები - ITCS სტილში */
-.main-content-row .about-container ul.wp-block-list li::before {
+.about-container ul li::before {
     content: "";
     position: absolute;
     left: -25px;
     top: 10px;
-    width: 7px;
-    height: 7px;
-    background: #b0d40f; /* შენი ნეონის მწვანე */
+    width: 8px;
+    height: 8px;
+    background: #b0d40f;
     border-radius: 50%;
-    box-shadow: 0 0 10px rgba(176, 212, 15, 0.8);
+    box-shadow: 0 0 12px #b0d40f; /* ნეონური წერტილები */
 }
 
-/* სათაურის ფიქსირებული სტილი */
-.main-content-row .about-container h2.wp-block-heading {
+.about-container h2 {
     background: linear-gradient(90deg, #fff, #b0d40f);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-top: 10px;
-    margin-bottom: 25px;
     font-weight: 800;
+}
+
+/* 
+================================================================
+   [ 📱 05. CONTACT INFO & NEON ICONS ]
+================================================================ 
+*/
+
+.contact-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 18px 22px;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+/* ხატულების ბაზისური ნეონი */
+.contact-item i {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.3rem;
+    transition: all 0.4s ease;
+}
+
+/* ფერადი ნეონური ჩრდილები (Initial state) */
+.wa-special i { color: #25d366; background: rgba(37, 211, 102, 0.1); box-shadow: 0 0 10px rgba(37, 211, 102, 0.2); }
+.tg-special i { color: #0088cc; background: rgba(0, 136, 204, 0.1); box-shadow: 0 0 10px rgba(0, 136, 204, 0.2); }
+.insta-special i { color: #e1306c; background: rgba(225, 48, 108, 0.1); box-shadow: 0 0 10px rgba(225, 48, 108, 0.2); }
+
+/* Hover ეფექტები - გაძლიერებული განათება */
+.contact-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+    transform: scale(1.03) translateX(8px);
+}
+
+.wa-special:hover i {
+    background: #25d366 !important;
+    color: #fff !important;
+    box-shadow: 0 0 25px #25d366;
+    transform: rotate(-10deg) scale(1.15);
+}
+
+.tg-special:hover i {
+    background: #0088cc !important;
+    color: #fff !important;
+    box-shadow: 0 0 25px #0088cc;
+    transform: rotate(-10deg) scale(1.15);
+}
+
+.insta-special:hover i {
+    background: linear-gradient(45deg, #f09433, #dc2743, #bc1888) !important;
+    color: #fff !important;
+    box-shadow: 0 0 25px #dc2743;
+    transform: rotate(-10deg) scale(1.15);
+}
+
+/* ტექსტის ფერის შეცვლა ჰოვერზე */
+.contact-item:hover .contact-details strong,
+.contact-item:hover .contact-details a {
+    color: #b0d40f;
+    text-shadow: 0 0 8px rgba(176, 212, 15, 0.5);
 }

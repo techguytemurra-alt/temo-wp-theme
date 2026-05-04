@@ -20,7 +20,7 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#order" class="nav-order-btn">Order Now</a></li>
           <li><a href="#about">About Me</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Contact</a></li> 
         </ul>
       </nav>
       <footer class="sidebar-footer">

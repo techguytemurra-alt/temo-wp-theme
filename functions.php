@@ -72,3 +72,10 @@ function temo_dev_widgets_init()
     ));
 }
 add_action('widgets_init', 'temo_dev_widgets_init');
+
+
+function enqueue_font_awesome()
+{
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
+}
+add_action('wp_enqueue_scripts', 'enqueue_font_awesome');
