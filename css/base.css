@@ -2,29 +2,25 @@
    1. RESET & VARIABLES (ცვლადები და ბაზა)
    ================================================= */
 :root {
-  /* ძირითადი პარამეტრები */
-  --primary-color: #f2b50b;
-  --secondary-color: #0731a4;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  /* LINUX COLORS */
+  --primary-color: #b0d40f;       /* Mint Green */
+  --secondary-color: #2c3848;     /* GNOME Dark */
+  --bg-color: #f6f5f4;            /* Adwaita Light */
+  --card-bg: rgba(255, 255, 255, 0.8); 
+  --text-color: #2e3436;          /* GNOME Grey */
+  --card-border: rgba(0, 0, 0, 0.1);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   --radius: 25px;
   --white: #ffffff;
-
-  /* Light Mode (ნათელი ფერები - Default) */
-  --bg-color: #ececec;
-  /* შენი ძველი ფონი */
-  --text-color: #333;
-  --accent-color: #22bb2c;
-  --card-bg: #ffffff;
 }
 
-/* Dark Mode (როცა ჩავრთავთ) */
 [data-theme="dark"] {
-  --bg-color: #0d1117;
-  --text-color: #c9d1d9;
-  --accent-color: #58a6ff;
-  --card-bg: #161b22;
-  --primary-color: #fbc02d;
-  /* მუქ ფონზე ცოტა უფრო ღია ყვითელი უკეთ ჩანს */
+  --bg-color: #1e1e1e;            /* GNOME Dark */
+  --card-bg: rgba(35, 35, 35, 0.6); 
+  --text-color: #eeeeec;          /* Adwaita White */
+  --secondary-color: #0731a4;     /* Fedora Blue */
+  --card-border: rgba(255, 255, 255, 0.1);
+  --shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
 }
 
 html {

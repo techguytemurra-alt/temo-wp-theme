@@ -15,11 +15,11 @@
 .about-container,
 .personal-card-container {
     flex: 1 1 450px;
-    background: rgba(255, 255, 255, 0.03);
+    background: linear-gradient(135deg, #300a24 0%, #1e1e1e 100%);
     backdrop-filter: blur(15px);
     padding: 60px 50px;
     border-radius: 40px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(225, 77, 42, 0.3);
     min-height: auto; 
     display: flex;
     flex-direction: column;
@@ -28,6 +28,7 @@
     overflow: hidden;
     z-index: 1;
     transition: transform 0.4s ease, box-shadow 0.4s ease;
+    color: #eeeeec;
 }
 
 .about-container:hover,
@@ -128,13 +129,20 @@
 .about-container .wp-block-group,
 .about-container p,
 .about-container ul {
-    background: rgba(255, 255, 255, 0.03);
+    /* Ubuntu Aubergine - რბილი და პროფესიონალური */
+    background: rgba(48, 10, 36, 0.7); 
+    
+    /* ტექსტი იყოს ოდნავ "თბილი" თეთრი */
+    color: #f7f7f7; 
+    
+    /* ჩარჩო Ubuntu-ს ნარინჯისფერი ელფერით */
+    border: 1px solid rgba(233, 84, 32, 0.3);
+    
     padding: 25px 30px;
     border-radius: 22px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
     margin-bottom: 20px;
-    color: #ccc;
     line-height: 1.8;
+    backdrop-filter: blur(10px); /* შუშის ეფექტისთვის */
 }
 
 /* წერტილების (Bullets) ფიქსაცია */
@@ -242,3 +250,8 @@
     color: #b0d40f;
     text-shadow: 0 0 8px rgba(176, 212, 15, 0.5);
 }
+
+
+
+
+
