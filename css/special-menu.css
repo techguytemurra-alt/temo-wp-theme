@@ -1,0 +1,116 @@
+/* --- Special Menu Container --- */
+.special-menu-links {
+    margin: 30px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- Link Box Base Style --- */
+.spec-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    background: rgba(120, 120, 120, 0.1);
+    border: 1px solid rgba(120, 120, 120, 0.2);
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+/* --- Default Text Colors (Light Mode) --- */
+.spec-title {
+    color: #333333;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+/* 1. ტექსტის კონტეინერი - აიძულებს შვილებს (სათაურს და აღწერას) სვეტად დალაგდნენ */
+.spec-text {
+    display: flex;
+    flex-direction: column; /* ეს სვამს აღწერას სათაურის დაბლა */
+    align-items: flex-start; /* ასწორებს ტექსტს მარცხნივ */
+    line-height: 1.2; /* მცირე დაშორება ხაზებს შორის */
+}
+
+/* 2. აღწერა - დავუმატოთ მცირე დაშორება ზემოდან */
+.spec-desc {
+    color: #666666;
+    font-size: 0.75rem;
+    margin-top: 2px; /* მცირე პადინგი/მარჯინი სათაურსა და აღწერას შორის */
+    transition: color 0.3s ease;
+    white-space: nowrap; /* თუ გინდა რომ არცერთი სიტყვა არ ჩამოვიდეს მესამე ხაზზე */
+}
+
+.spec-icon {
+    font-size: 1.5rem;
+    color: #333333;
+    background: rgba(120, 120, 120, 0.1);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+/* --- Dark Theme Support --- */
+[data-theme="dark"] .spec-link {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .spec-title {
+    color: #ffffff;
+}
+
+[data-theme="dark"] .spec-desc {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .spec-icon {
+    color: #ffffff;
+}
+
+/* --- Hover State (No Important Needed) --- */
+.spec-link:hover {
+    background: var(--primary-color, #007aff); 
+    transform: scale(1.02) translateX(5px);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ჰოვერზე ტექსტის შეცვლა - სელექტორი უფრო სპეციფიკურია */
+.spec-link:hover .spec-title,
+.spec-link:hover .spec-desc,
+.spec-link:hover .spec-icon {
+    color: #ffffff;
+}
+
+/* ისარი ჰოვერზე */
+.spec-link::after {
+    content: '→';
+    position: absolute;
+    right: -20px;
+    opacity: 0;
+    transition: 0.3s;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.spec-link:hover::after {
+    right: 15px;
+    opacity: 1;
+}
+
+/* ემოჯის (ხატულის) გადახრის ანიმაცია ჰოვერზე */
+.spec-link:hover .spec-icon {
+    transform: rotate(15deg) scale(1.1);
+    background: rgba(255, 255, 255, 0.2); /* ცოტა უფრო გამოვკვეთოთ ფონიც */
+}
