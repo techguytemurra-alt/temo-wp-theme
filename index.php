@@ -20,9 +20,31 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#order" class="nav-order-btn">Order Now</a></li>
           <li><a href="#about">About Me</a></li>
-          <li><a href="#contact">Contact</a></li> 
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
+
+      <!-- დაამატე ეს ნაწილი main-nav-ის ქვემოთ -->
+      <div class="special-menu-links">
+        <a href="<?php echo site_url('/services-list'); ?>" class="spec-link">
+          <span class="spec-icon">📋</span>
+          <div class="spec-text">
+            <span class="spec-title">სერვისები</span>
+            <span class="spec-desc">სრული ჩამონათვალი</span>
+          </div>
+        </a>
+
+        <a href="<?php echo site_url('/pricing'); ?>" class="spec-link">
+          <span class="spec-icon">💰</span>
+          <div class="spec-text">
+            <span class="spec-title">ფასები</span>
+            <span class="spec-desc">ღირებულებები</span>
+          </div>
+        </a>
+      </div>
+
+
+
       <footer class="sidebar-footer">
         <p>&copy; <?php echo date('Y'); ?> ჩემი პორტფოლიო | Build with M3 Pro</p>
       </footer>
@@ -159,16 +181,34 @@
       </div>
 
 
-      <!-- Order Form Section -->
       <div class="order-section-wrapper">
         <section id="order" class="container">
-          <?php
-          if (is_active_sidebar('order-form-widgets')) :
-            dynamic_sidebar('order-form-widgets');
-          else :
-            echo '<p style="text-align:center;">დაამატე ორდერის ფორმა: Appearance > Widgets > Order Form Area</p>';
-          endif;
-          ?>
+          <div class="order-flex-container">
+
+            <!-- მარცხენა მხარე: ფორმა -->
+            <div class="order-form-content">
+              <?php
+              if (is_active_sidebar('order-form-widgets')) :
+                dynamic_sidebar('order-form-widgets');
+              else :
+                echo '<p style="text-align:center;">დაამატე ორდერის ფორმა: Appearance > Widgets > Order Form Area</p>';
+              endif;
+              ?>
+            </div>
+
+            <!-- მარჯვენა მხარე: Vegas ანიმაცია -->
+            <div class="vegas-order-sidebar">
+              <span>O</span>
+              <span>R</span>
+              <span>D</span>
+              <span>E</span>
+              <span>R</span>
+              <span class="highlight-letter">N</span>
+              <span class="highlight-letter">O</span>
+              <span class="highlight-letter">W</span>
+            </div>
+
+          </div>
         </section>
       </div>
 

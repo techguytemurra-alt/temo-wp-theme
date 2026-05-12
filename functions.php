@@ -28,6 +28,8 @@ function temo_dev_scripts()
     // Services CSS
     wp_enqueue_style('gutenberg-fix', $theme_uri . '/css/services.css', array(), time());
 
+    wp_enqueue_style('special-menu-style', $theme_uri . '/css/special-menu.css', array(), time());
+
     // 4. რესპონსიულობა
     wp_enqueue_style('media-queries', $theme_uri . '/css/media-queries.css', array(), time());
 }
