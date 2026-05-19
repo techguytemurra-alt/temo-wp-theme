@@ -1,58 +1,5 @@
-<!doctype html>
-<html <?php language_attributes(); ?>>
+<?php get_header(); ?>
 
-<head>
-  <meta charset="<?php bloginfo('charset'); ?>" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <?php wp_head(); ?>
-</head>
-
-<body <?php body_class(); ?>>
-  <div class="layout-wrapper">
-    <header class="header-menu">
-      <div class="menu-brand">
-        <h1 class="text-1">Temo.Dev</h1>
-      </div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#order" class="nav-order-btn">Order Now</a></li>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <!-- დაამატე ეს ნაწილი main-nav-ის ქვემოთ -->
-      <div class="special-menu-links">
-        <a href="<?php echo site_url('/services-list'); ?>" class="spec-link">
-          <span class="spec-icon">📋</span>
-          <div class="spec-text">
-            <span class="spec-title">სერვისები</span>
-            <span class="spec-desc">სრული ჩამონათვალი</span>
-          </div>
-        </a>
-
-        <a href="<?php echo site_url('/pricing'); ?>" class="spec-link">
-          <span class="spec-icon">💰</span>
-          <div class="spec-text">
-            <span class="spec-title">ფასები</span>
-            <span class="spec-desc">ღირებულებები</span>
-          </div>
-        </a>
-      </div>
-
-
-
-      <footer class="sidebar-footer">
-        <p>&copy; <?php echo date('Y'); ?> ჩემი პორტფოლიო | Build with M3 Pro</p>
-      </footer>
-      <button id="theme-toggle" class="theme-switch">🌙</button>
-      <button id="scroll-top" class="scroll-btn">↑</button>
-    </header>
-
-    <main class="content-area">
       <section id="hero" class="hero-container">
         <div class="hero-grid-container">
           <div class="hero-main-box">
@@ -161,7 +108,6 @@
         </section>
       </div>
 
-
       <div class="dark-section-wrapper1">
         <section id="services" class="services-section">
           <div class="container">
@@ -180,12 +126,10 @@
         </section>
       </div>
 
-
       <div class="order-section-wrapper">
         <section id="order" class="container">
           <div class="order-flex-container">
 
-            <!-- მარცხენა მხარე: ფორმა -->
             <div class="order-form-content">
               <?php
               if (is_active_sidebar('order-form-widgets')) :
@@ -196,7 +140,6 @@
               ?>
             </div>
 
-            <!-- მარჯვენა მხარე: Vegas ანიმაცია -->
             <div class="vegas-order-sidebar">
               <span>O</span>
               <span>R</span>
@@ -212,14 +155,21 @@
         </section>
       </div>
 
-
       <div class="main-content-row">
         <section id="about" class="about-container">
           <?php
-          if (have_posts()) :
-            while (have_posts()) : the_post();
-              the_content();
-            endwhile;
+          // რადგან გვერდი პირდაპირ მთავარზე ზის, ID-ით წამოვიღოთ ყველაზე საიმედოდ
+          $about_query = new WP_Query(array(
+              'page_id' => get_option('page_on_front') // ავტომატურად იღებს მთავარ გვერდს
+          ));
+
+          if ( $about_query->have_posts() ) :
+              while ( $about_query->have_posts() ) : $about_query->the_post();
+                  the_content();
+              endwhile;
+              wp_reset_postdata();
+          else :
+              echo '<p style="text-align:center; color:white;">About ინფორმაცია ვერ მოიძებნა. შეამოწმე Settings > Reading.</p>';
           endif;
           ?>
         </section>
@@ -234,58 +184,5 @@
           ?>
         </section>
       </div>
-    </main>
-  </div>
 
-
-  <?php wp_footer(); ?>
-
-  <script>
-    const themeBtn = document.querySelector('#theme-toggle');
-    const currentTheme = localStorage.getItem('theme'); // ვამოწმებთ, ხომ არ გვიდევს საწყობში "theme"
-
-    // 1. თუ საწყობში უკვე გვიდევს 'dark', ჩავრთოთ ეგრევე
-    if (currentTheme === 'dark') {
-      document.documentElement.setAttribute('data-theme', 'dark');
-      themeBtn.innerHTML = '☀️';
-    }
-
-    themeBtn.addEventListener('click', () => {
-      let theme = 'light'; // დეფაულტად იყოს ნათელი
-
-      if (document.documentElement.getAttribute('data-theme') !== 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        theme = 'dark';
-        themeBtn.innerHTML = '☀️';
-      } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        themeBtn.innerHTML = '🌙';
-      }
-
-      // 2. შევინახოთ არჩევანი საწყობში (localStorage)
-      localStorage.setItem('theme', theme);
-    });
-
-    const scrollTopBtn = document.querySelector('#scroll-top');
-
-    // 1. გამოვაჩინოთ ღილაკი მხოლოდ მაშინ, როცა 300px-ზე მეტს ჩამოვსქროლავთ
-    window.onscroll = function() {
-      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-        scrollTopBtn.style.display = "block";
-      } else {
-        scrollTopBtn.style.display = "none";
-      }
-    };
-
-    // 2. ზემოთ ასვლის ფუნქცია
-    scrollTopBtn.addEventListener('click', () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // ნაზი ასვლა
-      });
-    });
-  </script>
-
-</body>
-
-</html>
+<?php get_footer(); ?>

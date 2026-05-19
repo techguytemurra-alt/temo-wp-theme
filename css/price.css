@@ -1,0 +1,66 @@
+/* Pricing Page Custom Styles */
+
+.pricing-page-wrapper {
+  padding: 80px 20px;
+  
+}
+
+.pricing-page-title {
+  text-align: center;
+  color: #D92243;
+  margin-bottom: 50px;
+}
+
+.pricing-list-vertical {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.pricing-long-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 30px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+/* მწვანე ჰოვერის ეფექტი */
+.pricing-long-card:hover {
+  border-color: #27ae60;
+  box-shadow: 0 8px 25px rgba(39, 174, 96, 0.2);
+  transform: translateY(-5px);
+}
+
+.pricing-card-image {
+  margin-right: 25px;
+  font-size: 3rem;
+}
+
+.pricing-card-info h2 {
+  margin: 0 0 10px 0;
+  color: #2c3e50;
+}
+
+.pricing-card-info p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.pricing-price-tag {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #e8f5e9; /* ღია მწვანე ფონი */
+  color: #27ae60; /* ლარის ფერი */
+  border-radius: 30px;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+}
+
+.pricing-long-card:hover .pricing-price-tag {
+  background: #27ae60;
+  color: #ffffff;
+}

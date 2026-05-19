@@ -1,0 +1,92 @@
+/* --- სერვისების გვერდის სტილები --- */
+.services-page-wrapper {
+  width: 100%;
+  padding: 140px 20px 60px 20px; /* 140px ზემოდან, რომ მენიუს ქვეშ არ მოექცეს */
+  display: flex;
+  justify-content: center;
+}
+
+.services-page-container {
+  width: 100%;
+  max-width: 1000px; /* ზღუდავს სიგანეს, რომ დიდ ეკრანზე ძალიან არ გაიწელოს */
+}
+
+.services-page-container .page-title {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.services-list-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* დაშორება მართკუთხედებს შორის */
+}
+
+.service-long-card {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05); /* ოდნავ გამჭვირვალე ფონი */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  height: auto; /* აი ეს არის მთავარი საიდუმლო - იზრდება კონტენტთან ერთად! */
+  transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+
+/* ეფექტი მაუსის მიტანისას */
+.service-long-card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #ffaa00; /* აქ ჩასვი შენი საიტის აქცენტის ფერი */
+}
+
+/* ფოტოს/ლოგოს კონტეინერი */
+.service-card-image {
+  flex: 0 0 120px; /* ფიქსირებული სიგანე 120px, არც დაპატარავდება არც გაიდიდება */
+  height: 120px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30px;
+  font-size: 3.5rem; /* იკონკის ზომა */
+  overflow: hidden;
+}
+
+.service-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* თუ ფოტოს ჩასვამ, ლამაზად ჩაჯდება */
+}
+
+/* ტექსტის კონტეინერი */
+.service-card-info {
+  flex: 1; /* დაიკავებს მთელ დარჩენილ სივრცეს მარჯვნივ */
+}
+
+.service-card-info h2 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #ffaa00; /* სათაურის ფერი */
+}
+
+.service-card-info p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* რეზოლუციის ოპტიმიზაცია ტელეფონებისთვის (Responsive) */
+@media (max-width: 768px) {
+  .service-long-card {
+    flex-direction: column; /* ტელეფონზე ფოტო დადგება ზემოთ, ტექსტი ქვემოთ */
+    text-align: center;
+    padding: 20px;
+  }
+  .service-card-image {
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+}

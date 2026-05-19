@@ -25,8 +25,14 @@ function temo_dev_scripts()
     // შესწორებული ხაზი: სახელი არის 'order-style' და ფაილის სახელი არის სწორი
     wp_enqueue_style('order-style', $theme_uri . '/css/order-forms.css', array(), time());
 
-    // Services CSS
+    // Services CSS (მთავარი გვერდის სერვისებისთვის)
     wp_enqueue_style('gutenberg-fix', $theme_uri . '/css/services.css', array(), time());
+
+    // ახალი სერვისების გვერდის სტილი (სერვისების სრული ჩამონათვალისთვის)
+    wp_enqueue_style('services-list-page-style', $theme_uri . '/css/services-1.css', array(), 
+        time());
+
+    wp_enqueue_style('pricing-style', $theme_uri . '/css/price.css', array(), time());
 
     wp_enqueue_style('special-menu-style', $theme_uri . '/css/special-menu.css', array(), time());
 
