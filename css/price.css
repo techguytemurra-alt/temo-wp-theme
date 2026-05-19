@@ -1,66 +1,114 @@
-/* Pricing Page Custom Styles */
-
+/* ==========================================================================
+   Pricing Page Custom Styles
+   ========================================================================== */
 .pricing-page-wrapper {
-  padding: 80px 20px;
-  
+    position: relative; /* შიდა აბსოლუტური ელემენტები ამ ჩარჩოს არ გასცდნენ */
+    display: flex;
+    justify-content: center; /* კუბიკებს ზუსტად ცენტრში დატოვებს */
+    padding: 80px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 500px;
+}
+
+
+
+
+
+.pricing-page-container {
+    max-width: 800px;
+    width: 100%;
+
+
+
 }
 
 .pricing-page-title {
-  text-align: center;
-  color: #D92243;
-  margin-bottom: 50px;
-}
-
-.pricing-list-vertical {
-  max-width: 800px;
-  margin: 0 auto;
+    text-align: center;
+    color: #D92243;
+    margin-bottom: 50px;
 }
 
 .pricing-long-card {
-  display: flex;
-  align-items: center;
-  background: #ffffff;
-  padding: 30px;
-  margin-bottom: 20px;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
 }
 
-/* მწვანე ჰოვერის ეფექტი */
 .pricing-long-card:hover {
-  border-color: #27ae60;
-  box-shadow: 0 8px 25px rgba(39, 174, 96, 0.2);
-  transform: translateY(-5px);
+    border-color: #27ae60;
+    box-shadow: 0 8px 25px rgba(39, 174, 96, 0.2);
+    transform: translateY(-5px);
 }
 
-.pricing-card-image {
-  margin-right: 25px;
-  font-size: 3rem;
+.pricing-card-image { 
+    margin-right: 25px; 
+    font-size: 3rem; 
 }
 
-.pricing-card-info h2 {
-  margin: 0 0 10px 0;
-  color: #2c3e50;
+.pricing-card-info h2 { 
+    margin: 0 0 10px 0; 
+    color: #2c3e50; 
 }
 
-.pricing-card-info p {
-  color: #666;
-  margin-bottom: 15px;
+.pricing-card-info p { 
+    color: #666; 
+    margin-bottom: 15px; 
 }
 
 .pricing-price-tag {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #e8f5e9; /* ღია მწვანე ფონი */
-  color: #27ae60; /* ლარის ფერი */
-  border-radius: 30px;
-  font-size: 1.2rem;
-  transition: all 0.3s;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #e8f5e9;
+    color: #27ae60;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    transition: all 0.3s;
 }
 
 .pricing-long-card:hover .pricing-price-tag {
-  background: #27ae60;
-  color: #ffffff;
+    background: #27ae60;
+    color: #ffffff;
 }
+
+
+/* 1. აი ეს კლასი საერთოდ არ გქონდა CSS-ში და ამიტომ გბლოკავდა! */
+.pricing-list-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* <- აი ეს არის ყველაზე თანამედროვე და მუშა დაშორება! */
+}
+
+/* 2. აქ კი ატარე ექსპერიმენტები ფორმებზე */
+.pricing-long-card {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 30px;
+    
+    /* margin-bottom აღარ გჭირდება, "gap" აკეთებს იდეალურ დაშორებას */
+    
+    /* ფორმის ექსპერიმენტები: */
+    border-radius: 25px; /* შეცვალე ეს (მაგ: 0px - ოთხკუთხედია, 40px - ძალიან მომრგვალებული) */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* ჩრდილის სიმუქე და გაბნევა */
+    
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+
+
+/* ==========================================================================
+   რესპონსიულობა (Responsive)
+   ========================================================================== */
+@media (max-width: 900px) {
+    .pricing-page-wrapper { 
+        flex-direction: column; 
+    }
+    

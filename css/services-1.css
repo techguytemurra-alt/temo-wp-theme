@@ -1,9 +1,10 @@
 /* --- სერვისების გვერდის სტილები --- */
 .services-page-wrapper {
   width: 100%;
-  padding: 140px 20px 60px 20px; /* 140px ზემოდან, რომ მენიუს ქვეშ არ მოექცეს */
+  padding: 50px 20px 60px 20px; /* 140px ზემოდან, რომ მენიუს ქვეშ არ მოექცეს */
   display: flex;
   justify-content: center;
+
 }
 
 .services-page-container {
@@ -11,33 +12,44 @@
   max-width: 1000px; /* ზღუდავს სიგანეს, რომ დიდ ეკრანზე ძალიან არ გაიწელოს */
 }
 
+
+/*.page-title{color: #4A102A
+
+
+}*/
+
+
 .services-page-container .page-title {
   font-size: 2.5rem;
-  margin-bottom: 40px;
+  margin-bottom: 50px;
   text-align: center;
+  color: #4A102A;
+  letter-spacing:2px;
+
 }
 
 .services-list-vertical {
   display: flex;
   flex-direction: column;
-  gap: 25px; /* დაშორება მართკუთხედებს შორის */
+  gap: 70px; /* დაშორება მართკუთხედებს შორის */
 }
 
 .service-long-card {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.05); /* ოდნავ გამჭვირვალე ფონი */
+  background: #15173D; /* ოდნავ გამჭვირვალე ფონი */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 30px;
   height: auto; /* აი ეს არის მთავარი საიდუმლო - იზრდება კონტენტთან ერთად! */
   transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+  
 }
 
 /* ეფექტი მაუსის მიტანისას */
 .service-long-card:hover {
   transform: translateY(-3px);
-  background: rgba(255, 255, 255, 0.08);
+  background: #273F4F;
   border-color: #ffaa00; /* აქ ჩასვი შენი საიტის აქცენტის ფერი */
 }
 
@@ -45,7 +57,7 @@
 .service-card-image {
   flex: 0 0 120px; /* ფიქსირებული სიგანე 120px, არც დაპატარავდება არც გაიდიდება */
   height: 120px;
-  background: rgba(255, 255, 255, 0.08);
+  background: #483AA0;
   border-radius: 10px;
   display: flex;
   align-items: center;
