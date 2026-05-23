@@ -31,6 +31,21 @@
     font-weight: 700;
 }
 
+
+/* ლოგოს ლინკის გასუფთავება */
+.logo-link {
+    text-decoration: none; /* აშორებს ბრაუზერის სტანდარტულ ხაზს */
+    display: inline-block; /* რომ ზუსტად ტექსტის ზომა დაიკავოს */
+}
+
+/* პატარა, ეპიკური ეფექტი მაუსის მიტანისას (მ3 პრო-ს თემებში) */
+.logo-link:hover .text-1 {
+    opacity: 0.85;
+    transform: scale(1.02); /* ოდნავ, შეუმჩნევლად გაიზრდება მაუსის მიტანისას */
+    transition: all 0.3s ease;
+}
+
+
 .main-nav {
     background-color: #203e5f;
     padding: 30px 20px;

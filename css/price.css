@@ -2,25 +2,18 @@
    Pricing Page Custom Styles
    ========================================================================== */
 .pricing-page-wrapper {
-    position: relative; /* შიდა აბსოლუტური ელემენტები ამ ჩარჩოს არ გასცდნენ */
+    position: relative; 
     display: flex;
-    justify-content: center; /* კუბიკებს ზუსტად ცენტრში დატოვებს */
+    justify-content: center; 
     padding: 80px 20px;
     max-width: 1200px;
     margin: 0 auto;
-    margin-bottom: 500px;
+    margin-bottom: 500px; /* თუ ძველი მენიუს გამო გეწერა, მერე ეს 500px შეგიძლიათ შეამცირო */
 }
-
-
-
-
 
 .pricing-page-container {
     max-width: 800px;
     width: 100%;
-
-
-
 }
 
 .pricing-page-title {
@@ -29,16 +22,23 @@
     margin-bottom: 50px;
 }
 
+/* მშობელი კონტეინერი, რომელიც მართავს დაშორებებს */
+.pricing-list-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 90px; /* დაშორება ქარდებს შორის */
+}
+
+/* გაერთიანებული და გასუფთავებული ქარდის სტილი */
 .pricing-long-card {
     display: flex;
     align-items: center;
-    background: #ffffff;
+    background: #EB5B00; /* შენი ახალი, მაგარი ნარინჯისფერი ფონი */
     padding: 30px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    transition: all 0.3s ease;
+    border-radius: 25px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08); 
     border: 2px solid transparent;
+    transition: all 0.3s ease;
 }
 
 .pricing-long-card:hover {
@@ -47,18 +47,29 @@
     transform: translateY(-5px);
 }
 
+/* ფასების გვერდის იკონკის ლამაზი კონტეინერი (ზუსტად სერვისების მსგავსი) */
 .pricing-card-image { 
-    margin-right: 25px; 
-    font-size: 3rem; 
+    flex: 0 0 100px; /* ფიქსირებული სიგანე 100px */
+    height: 100px; /* ფიქსირებული სიმაღლე */
+    background: #4a102a; /* აქ ჩავსვი შენი ახალი მუქი ფერი, ძალიან მოუხდება ნარინჯისფერს */
+    border-radius: 12px; /* მომრგვალებული კუთხეები */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* იკონკას სვამს ზუსტად ცენტრში */
+    margin-right: 25px; /* დაშორება იკონკასა და ტექსტს შორის */
+    font-size: 2.8rem; /* იკონკის ზომა */
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.15); /* მსუბუქი შიდა ჩარჩო უფრო მეტი ეფექტისთვის */
 }
 
+/* ნარინჯისფერ ფონზე ტექსტები რომ კარგად იკითხებოდეს */
 .pricing-card-info h2 { 
     margin: 0 0 10px 0; 
-    color: #2c3e50; 
+    color: #ffffff; /* თეთრი სათაური */
 }
 
 .pricing-card-info p { 
-    color: #666; 
+    color: rgba(255, 255, 255, 0.9); /* ოდნავ რბილი თეთრი აღწერისთვის */
     margin-bottom: 15px; 
 }
 
@@ -77,38 +88,22 @@
     color: #ffffff;
 }
 
-
-/* 1. აი ეს კლასი საერთოდ არ გქონდა CSS-ში და ამიტომ გბლოკავდა! */
-.pricing-list-vertical {
-    display: flex;
-    flex-direction: column;
-    gap: 50px; /* <- აი ეს არის ყველაზე თანამედროვე და მუშა დაშორება! */
-}
-
-/* 2. აქ კი ატარე ექსპერიმენტები ფორმებზე */
-.pricing-long-card {
-    display: flex;
-    align-items: center;
-    background: #ffffff;
-    padding: 30px;
-    
-    /* margin-bottom აღარ გჭირდება, "gap" აკეთებს იდეალურ დაშორებას */
-    
-    /* ფორმის ექსპერიმენტები: */
-    border-radius: 25px; /* შეცვალე ეს (მაგ: 0px - ოთხკუთხედია, 40px - ძალიან მომრგვალებული) */
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* ჩრდილის სიმუქე და გაბნევა */
-    
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-
-
 /* ==========================================================================
-   რესპონსიულობა (Responsive)
+   Responsive
    ========================================================================== */
 @media (max-width: 900px) {
     .pricing-page-wrapper { 
         flex-direction: column; 
     }
     
+    /* ტელეფონებზე ფასების იკონკაც რომ ცენტრში დადგეს */
+    .pricing-long-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
+    .pricing-card-image {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}

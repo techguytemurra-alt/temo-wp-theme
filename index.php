@@ -115,7 +115,6 @@
             <div class="services-grid">
               <?php
               if (is_active_sidebar('services-widgets')) :
-                // ვიწყებთ ბუფერიზაციას, რომ კონტენტს მანიპულაცია გავუკეთოთ
                 dynamic_sidebar('services-widgets');
               else :
                 echo '<p style="color:white; text-align:center;">დაამატე სერვისები: Appearance > Widgets > Services Area</p>';
@@ -129,7 +128,6 @@
       <div class="order-section-wrapper">
         <section id="order" class="container">
           <div class="order-flex-container">
-
             <div class="order-form-content">
               <?php
               if (is_active_sidebar('order-form-widgets')) :
@@ -139,18 +137,10 @@
               endif;
               ?>
             </div>
-
             <div class="vegas-order-sidebar">
-              <span>O</span>
-              <span>R</span>
-              <span>D</span>
-              <span>E</span>
-              <span>R</span>
-              <span class="highlight-letter">N</span>
-              <span class="highlight-letter">O</span>
-              <span class="highlight-letter">W</span>
+              <span>O</span><span>R</span><span>D</span><span>E</span><span>R</span>
+              <span class="highlight-letter">N</span><span class="highlight-letter">O</span><span class="highlight-letter">W</span>
             </div>
-
           </div>
         </section>
       </div>
@@ -158,18 +148,19 @@
       <div class="main-content-row">
         <section id="about" class="about-container">
           <?php
-          // რადგან გვერდი პირდაპირ მთავარზე ზის, ID-ით წამოვიღოთ ყველაზე საიმედოდ
-          $about_query = new WP_Query(array(
-              'page_id' => get_option('page_on_front') // ავტომატურად იღებს მთავარ გვერდს
+          // ყველაზე უსაფრთხო გზა: ვიღებთ გვერდს, რომლის სლაგი არის 'about'
+          $about_by_slug = new WP_Query(array(
+              'pagename' => 'about'
           ));
 
-          if ( $about_query->have_posts() ) :
-              while ( $about_query->have_posts() ) : $about_query->the_post();
+          if ( $about_by_slug->have_posts() ) :
+              while ( $about_by_slug->have_posts() ) : $about_by_slug->the_post();
                   the_content();
               endwhile;
               wp_reset_postdata();
           else :
-              echo '<p style="text-align:center; color:white;">About ინფორმაცია ვერ მოიძებნა. შეამოწმე Settings > Reading.</p>';
+              echo '<h2 style="color:white; text-align:center;">About Me</h2>';
+              echo '<p style="text-align:center; color:rgba(255,255,255,0.7);">გვერდი მისამართით "about" ვერ მოიძებნა. შექმენი გვერდი ადმინკაში (Pages > Add New) და სახლად/სლაგად მიეცი: about</p>';
           endif;
           ?>
         </section>

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Temo Dev - Custom Theme Functions
  */
@@ -21,23 +20,17 @@ function temo_dev_scripts()
     wp_enqueue_style('marquee-common', $theme_uri . '/css/marquee-common.css');
     wp_enqueue_style('skills-sections', $theme_uri . '/css/skill-section.css', array(), time());
     wp_enqueue_style('about-contact', $theme_uri . '/css/about-contact.css');
-
-    // შესწორებული ხაზი: სახელი არის 'order-style' და ფაილის სახელი არის სწორი
     wp_enqueue_style('order-style', $theme_uri . '/css/order-forms.css', array(), time());
-
-    // Services CSS (მთავარი გვერდის სერვისებისთვის)
     wp_enqueue_style('gutenberg-fix', $theme_uri . '/css/services.css', array(), time());
-
-    // ახალი სერვისების გვერდის სტილი (სერვისების სრული ჩამონათვალისთვის)
-    wp_enqueue_style('services-list-page-style', $theme_uri . '/css/services-1.css', array(), 
-        time());
-
+    wp_enqueue_style('services-list-page-style', $theme_uri . '/css/services-1.css', array(), time());
     wp_enqueue_style('pricing-style', $theme_uri . '/css/price.css', array(), time());
-
     wp_enqueue_style('special-menu-style', $theme_uri . '/css/special-menu.css', array(), time());
 
     // 4. რესპონსიულობა
     wp_enqueue_style('media-queries', $theme_uri . '/css/media-queries.css', array(), time());
+    
+    // 5. Font Awesome იკონკები
+    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
 }
 add_action('wp_enqueue_scripts', 'temo_dev_scripts');
 
@@ -69,7 +62,7 @@ function temo_dev_widgets_init()
         'after_title'   => '</h3>',
     ));
 
-    // 3. ორდერის ფორმის არეალი (ახლა უკვე ფუნქციის შიგნითაა!)
+    // 3. ორდერის ფორმის არეალი
     register_sidebar(array(
         'name'          => 'Order Form Area',
         'id'            => 'order-form-widgets',
@@ -80,10 +73,3 @@ function temo_dev_widgets_init()
     ));
 }
 add_action('widgets_init', 'temo_dev_widgets_init');
-
-
-function enqueue_font_awesome()
-{
-    wp_enqueue_style('font-awesome', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css');
-}
-add_action('wp_enqueue_scripts', 'enqueue_font_awesome');
