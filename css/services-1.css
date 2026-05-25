@@ -25,6 +25,13 @@
   text-align: center;
   color: #4A102A;
   letter-spacing:2px;
+  border-radius: 50px;
+  background-color: red;
+  padding: 40px 20px;
+  max-width: 500px;           /* მიუთითე, რა სიგანის გინდა რომ იყოს ეს წითელი ბლოკი (მაგალითად 500px ან 600px) */
+  margin: 0 auto 50px auto;   /* პირველი 'auto' და მეორე 'auto' აცენტრებს ბლოკს, ხოლო 50px ტოვებს დაშორებას ქვედა კუბიკებთან */
+}
+
 
 }
 
