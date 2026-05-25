@@ -73,3 +73,40 @@ function temo_dev_widgets_init()
     ));
 }
 add_action('widgets_init', 'temo_dev_widgets_init');
+
+
+
+
+function register_services_custom_post_type() {
+    register_post_type('services', array(
+        'labels' => array(
+            'name' => 'სერვისები',
+            'singular_name' => 'სერვისი',
+            'add_new_item' => 'ახალი სერვისის დამატება',
+            'edit_item' => 'სერვისის რედაქტირება'
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'), // thumbnail არის სურათისთვის/იკონკისთვის
+        'menu_icon' => 'dashicons-portfolio', // ადმინკის იკონკა
+    ));
+}
+add_action('init', 'register_services_custom_post_type');
+
+
+
+function register_pricing_custom_post_type() {
+    register_post_type('pricing_packages', array(
+        'labels' => array(
+            'name' => 'ფასები/პაკეტები',
+            'singular_name' => 'პაკეტი',
+            'add_new_item' => 'ახალი პაკეტის დამატება',
+            'edit_item' => 'პაკეტის რედაქტირება'
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'), // excerpt-ს გამოვიყენებთ ფასისთვის!
+        'menu_icon' => 'dashicons-money-alt', // ფულის იკონკა ადმინკისთვის
+    ));
+}
+add_action('init', 'register_pricing_custom_post_type');

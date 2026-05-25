@@ -9,27 +9,48 @@ get_header(); ?>
         <h1 class="pricing-page-title">ფასები და პაკეტები</h1>
         
         <div class="pricing-list-vertical">
-            <div class="pricing-long-card">
-                <div class="pricing-card-image"><span class="pricing-icon-placeholder">🚀</span></div>
-                <div class="pricing-card-info">
-                    <h2>სტარტაპ პაკეტი</h2>
-                    <p>იდეალურია მცირე ბიზნესისთვის. მოიცავს საიტის პირველად კონფიგურაციას, უსაფრთხოების ძირითად პარამეტრებს და 1-თვიან მხარდაჭერას.</p>
-                    <strong class="pricing-price-tag">ფასი: 300 ₾</strong>
-                </div>
-            </div>
+            
+            <?php
+            $pricing_query = new WP_Query(array(
+                'post_type' => 'pricing_packages',
+                'posts_per_page' => -1,
+                'order' => 'ASC'
+            ));
 
-            <div class="pricing-long-card">
-                <div class="pricing-card-image"><span class="pricing-icon-placeholder">🛡️</span></div>
-                <div class="pricing-card-info">
-                    <h2>სრული IT უზრუნველყოფა</h2>
-                    <p>სრული სერვისი: სისტემების მონიტორინგი, ავტომატური ბექაფები, Firewall-ის კონფიგურაცია და 24/7 კონსულტაცია.</p>
-                    <strong class="pricing-price-tag">ფასი: 700 ₾</strong>
-                </div>
-            </div>
+            if ( $pricing_query->have_posts() ) :
+                while ( $pricing_query->have_posts() ) : $pricing_query->the_post(); ?>
+                    
+                    <div class="pricing-long-card">
+                        <div class="pricing-card-image">
+                            <span class="pricing-icon-placeholder">
+                                <?php 
+                                if ( has_post_thumbnail() ) {
+                                    the_post_thumbnail('thumbnail');
+                                } else {
+                                    echo '💰'; 
+                                }
+                                ?>
+                            </span>
+                        </div>
+                        <div class="pricing-card-info">
+                            <h2><?php the_title(); ?></h2>
+                            <p><?php the_content(); ?></p>
+                            
+                            <?php if ( has_excerpt() ) : ?>
+                                <strong class="pricing-price-tag">ფასი: <?php echo get_the_excerpt(); ?></strong>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+
+                <?php endwhile;
+                wp_reset_postdata();
+            else :
+                echo '<p style="color:white; text-align:center;">ჯერჯერობით ფასები და პაკეტები არ არის დამატებული.</p>';
+            endif;
+            ?>
+            
         </div>
     </div>
 </div>
-
-
 
 <?php get_footer(); ?>

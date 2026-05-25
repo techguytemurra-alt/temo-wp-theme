@@ -10,30 +10,45 @@ get_header(); ?>
     
     <div class="services-list-vertical">
       
-      <div class="service-long-card">
-        <div class="service-card-image">
-          <span class="service-icon-placeholder">🖥️</span>
-        </div>
-        <div class="service-card-info">
-          <h2>IT ინფრასტრუქტურა & უსაფრთხოება</h2>
-          <p>აქ დაიწერება სერვისის სრული და დეტალური აღწერილობა. რაც უფრო მეტ ტექსტს ჩაამატებ ამ აბზაცში, ეს თეთრი მართკუთხედი ავტომატურად, ყოველგვარი დანაკარგის გარეშე გაიზრდება ქვემოთ. შეგიძლიათ ჩაწეროთ ინფორმაცია ქსელებზე, Linux სერვერებზე და სისტემურ მხარდაჭერაზე.</p>
-        </div>
-      </div>
+      <?php
+      // ვიძახებთ სპეციალურ ციკლს მხოლოდ სერვისების პოსტებისთვის
+      $services_query = new WP_Query(array(
+          'post_type' => 'services',
+          'posts_per_page' => -1, // -1 ნიშნავს, რომ ყველა გამოიტანოს, რაც კი არსებობს
+          'order' => 'ASC'        // დაალაგოს დამატების მიხედვით
+      ));
 
-      <div class="service-long-card">
-        <div class="service-card-image">
-          <span class="service-icon-placeholder">📸</span>
-        </div>
-        <div class="service-card-info">
-          <h2>ციფრული იმიჯინგი & ფოტოგრაფია</h2>
-          <p>პროფესიონალური გადაღებები ბათუმსა და მთელ რეგიონში. მოიცავს კომერციულ, ტექნიკურ და საავტორო ფოტოგრაფიას. სრული ციკლი: გადაღებიდან დაწყებული, ფერების კორექციითა და რეტუშით დასრულებული (Lightroom / Photoshop).</p>
-        </div>
-      </div>
+      if ( $services_query->have_posts() ) :
+          while ( $services_query->have_posts() ) : $services_query->the_post(); ?>
+              
+              <div class="service-long-card">
+                <div class="service-card-image">
+                  <span class="service-icon-placeholder">
+                    <?php 
+                    // თუ პოსტს აქვს "Featured Image", გამოიტანს მას, თუ არა - დეფაულტ იკონკას
+                    if ( has_post_thumbnail() ) {
+                        the_post_thumbnail('thumbnail');
+                    } else {
+                        echo '🖥️'; 
+                    }
+                    ?>
+                  </span>
+                </div>
+                <div class="service-card-info">
+                  <h2><?php the_title(); ?></h2>
+                  <p><?php the_content(); ?></p>
+                </div>
+              </div>
+
+          <?php endwhile;
+          wp_reset_postdata();
+      else :
+          echo '<p style="color:white; text-align:center;">ჯერჯერობით სერვისები არ არის დამატებული.</p>';
+      endif;
+      ?>
 
     </div>
   </div>
 </div>
-
-
 
 <?php get_footer(); ?>
