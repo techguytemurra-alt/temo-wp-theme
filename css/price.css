@@ -18,8 +18,18 @@
 
 .pricing-page-title {
     text-align: center;
-    color: #D92243;
-    margin-bottom: 50px;
+    color: #FFF4D2;
+    font-size: 2.5rem;             /* სათაურის ზომა */
+    letter-spacing: 2px;           /* ასოებს შორის დაშორება */
+    border-radius: 50px;           /* კუთხეების დამრგვალება */
+    padding: 20px 20px;            /* შიდა ბალიშები */
+    max-width: 700px;              /* ბლოკის მაქსიმალური სიგანე */
+    margin: 100px auto 70px auto;  /* ზედა 100px, გაცენტრვა გვერდებიდან, ქვედა 70px */
+
+    /* 👇 აი ეს არის პრემიუმ ვიზუალი და ზოლი გარშემო */
+    background-color: #5FBDFF;     /* სუფთა თეთრი ფონი */
+    border: 2px solid #4B3869;     /* პატარა წითელი ზოლი გარშემო */
+    box-shadow: 0 10px 30px rgba(217, 34, 67, 0.12); /* რბილი, ნაზი ჩრდილი იგივე ფერში */
 }
 
 /* მშობელი კონტეინერი, რომელიც მართავს დაშორებებს */
