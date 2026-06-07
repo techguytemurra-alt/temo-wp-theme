@@ -46,6 +46,10 @@
         </a>
       </div>
 
+      <div class="language-switcher" style="padding: 15px 10px; margin: 10px 0; border-top: 1px solid rgba(255,255,255,0.1);">
+        <div id="google_translate_element"></div>
+      </div>
+
       <footer class="sidebar-footer">
         <p>&copy; <?php echo date('Y'); ?> ჩემი პორტფოლიო | Build with M3 Pro</p>
       </footer>
@@ -55,3 +59,16 @@
     </header>
 
     <main class="content-area">
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'auto',
+    includedLanguages: 'ka,en',
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    multilanguage: true,
+    autoDisplay: false
+  }, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>

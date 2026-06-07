@@ -137,7 +137,9 @@
               endif;
               ?>
             </div>
-            <div class="vegas-order-sidebar">
+            
+            <!-- 👇 აქ ჩაემატა დაცვა, რომ გუგლმა ასოები აღარ აურიოს -->
+            <div class="vegas-order-sidebar notranslate" translate="no">
               <span>O</span><span>R</span><span>D</span><span>E</span><span>R</span>
               <span class="highlight-letter">N</span><span class="highlight-letter">O</span><span class="highlight-letter">W</span>
             </div>
@@ -148,7 +150,6 @@
       <div class="main-content-row">
         <section id="about" class="about-container">
           <?php
-          // ყველაზე უსაფრთხო გზა: ვიღებთ გვერდს, რომლის სლაგი არის 'about'
           $about_by_slug = new WP_Query(array(
               'pagename' => 'about'
           ));
