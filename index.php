@@ -51,6 +51,8 @@
         </div>
       </section>
 
+      
+
       <div class="marquee">
         <div class="marquee-content">
           <span>IT STRATEGY • CLOUD SYSTEMS • VISUAL STORYTELLING • </span>

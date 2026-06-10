@@ -25,6 +25,7 @@ function temo_dev_scripts()
     wp_enqueue_style('services-list-page-style', $theme_uri . '/css/services-1.css', array(), time());
     wp_enqueue_style('pricing-style', $theme_uri . '/css/price.css', array(), time());
     wp_enqueue_style('special-menu-style', $theme_uri . '/css/special-menu.css', array(), time());
+    wp_enqueue_style('language-style', $theme_uri . '/css/language.css', array(), time());
 
     // 4. რესპონსიულობა
     wp_enqueue_style('media-queries', $theme_uri . '/css/media-queries.css', array(), time());
@@ -110,3 +111,23 @@ function register_pricing_custom_post_type() {
     ));
 }
 add_action('init', 'register_pricing_custom_post_type');
+
+
+
+
+    // ვარეგისტრირებთ კოდის სიტყვებს Polylang-ისთვის
+add_action('init', function() {
+    if ( function_exists('pll_register_string') ) {
+        pll_register_string('Header Menu', 'სერვისები', 'temo-dev');
+        pll_register_string('Header Menu', 'სრული ჩამონათვალი', 'temo-dev');
+        pll_register_string('Header Menu', 'ფასები', 'temo-dev');
+        pll_register_string('Header Menu', 'ღირებულებები', 'temo-dev');
+        pll_register_string('Header Menu', 'Home', 'temo-dev');
+        pll_register_string('Header Menu', 'Skills', 'temo-dev');
+        pll_register_string('Header Menu', 'Services', 'temo-dev');
+        pll_register_string('Header Menu', 'Order Now', 'temo-dev');
+        pll_register_string('Header Menu', 'About Me', 'temo-dev');
+        pll_register_string('Header Menu', 'Contact', 'temo-dev');
+    }
+});
+
